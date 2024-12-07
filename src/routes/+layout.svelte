@@ -10,13 +10,21 @@
 </script>
 
 <!-- ****************************************************** CONTENT -->
-<Snow />
-<Header />
-<main class="flex flex-col gap-4 justify-center mx-auto text-center p-8">
-  <slot />
-</main>
-<Footer />
+<div class="layout flex flex-col">
+  <Snow />
+  <Header />
+  <main
+    class="flex flex-1 flex-col gap-4 justify-center items-center align-middle h-full mx-auto text-center p-8 max-w-[700px]"
+  >
+    <slot />
+  </main>
+  <Footer />
+</div>
 
 <!-- ****************************************************** STYLE -->
 <style lang="css">
+  .layout {
+    position: relative;
+    min-height: 100vh;
+  }
 </style>

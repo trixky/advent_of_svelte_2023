@@ -23,7 +23,7 @@
     z-index: -10;
     height: 100vh;
     width: 100%;
-    background: radial-gradient(ellipse at bottom, #ffb546 0%, #110c3f 100%);
+    background: radial-gradient(ellipse at bottom, #f3a939 0%, #ff9946 50%, #29245e 100%);
     // background: radial-gradient(ellipse at bottom, #d19a34 0%, #0e1746 100%);
     overflow: hidden;
     filter: drop-shadow(0 0 10px white);
