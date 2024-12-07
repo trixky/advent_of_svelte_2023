@@ -4,7 +4,7 @@
 
 <!-- ****************************************************** CONTENT -->
 <section class="flex flex-col gap-4 bg-black bg-opacity-50 border border-solid border-white p-4">
-  <h4>🚀 <a href="https://hack.sveltesociety.dev/2024" target="_blank"><span class="link-underlined italic">SvelteHack 2024 Rune edition</span></a> First! 🏁</h4>
+  <h4><span class="hidden sm:inline">🚀&nbsp;</span><a href="https://hack.sveltesociety.dev/2024" target="_blank"><span class="link-underlined italic">SvelteHack 2024 Rune edition</span></a> First!<span class="hidden sm:inline">&nbsp;🏁</span></h4>
   <p>
     This advent of Svelte is currently paused because I am currently working on
     the <a href="https://hack.sveltesociety.dev/2024" target="_blank"><span class="link-underlined italic">SvelteHack 2024 Rune edition</span></a>.

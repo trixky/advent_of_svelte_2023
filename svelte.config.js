@@ -23,7 +23,12 @@ const config = {
 		paths: {
 			base: baseDir,
 		},
-	}
+	},
+	prerender: {
+		entries: ['*'], // inclut toutes les pages accessibles
+		enabled: true // activé pour les pages statiques
+	},
+	ssr: false // désactive le SSR
 };
 
 export default config;

@@ -53,7 +53,7 @@
 </footer>
 
 <!-- ****************************************************** STYLE -->
-<style lang="css">
+<style lang="postcss">
   #footer-icons > li:not(.disabled) {
     @apply opacity-80 hover:opacity-100 duration-300 transition-opacity;
   }

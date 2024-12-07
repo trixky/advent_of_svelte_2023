@@ -1,75 +1,92 @@
 <!-- ****************************************************** SCRIPT -->
 <script lang="ts">
-  // Thanks to
-  // - https://freefrontend.com/css-snow-effects/
-  // - https://codepen.io/alphardex/pen/dyPorwJ
+  const snowflakes = Array.from({ length: 200 }, (_, i) => ({
+    left: Math.random() * 100,
+    animationDelayOuter: (Math.random() * 16 - 8).toFixed(2) + "s",
+    animationDelayInner: (Math.random() * 20 - 10).toFixed(2) + "s",
+    opacity: Math.random() * 0.5 + 0.5,
+    scale: Math.random() * 0.5 + 1,
+  }));
 
-  const snowflakes = new Array(200).fill(null);
+  const snowflakesByWidthPixel = 0.1;
+  let containerWidth: number = 0;
+  $: snowflakesToDisplayNumber = Math.floor(containerWidth * snowflakesByWidthPixel);
 </script>
 
-<!-- ****************************************************** CONTENT -->
-<div class="snow-container">
-  {#each snowflakes as snowflake}
-    <div class="snow"></div>
+<div class="snowflakes -z-10" aria-hidden="true" bind:clientWidth={containerWidth}>
+  {#each snowflakes as { left, animationDelayOuter, animationDelayInner, opacity, scale }, index}
+    <div
+      class="snowflake"
+      style="left: {left}%; animation-delay: {animationDelayOuter}; visibility: {index < snowflakesToDisplayNumber ? 'visible' : 'hidden'};"
+    >
+      <div
+        class="inner"
+        style="animation-delay: {animationDelayInner};"
+      >
+        <p style="opacity: {opacity}; transform: scale({scale});">❄</p>
+      </div>
+    </div>
   {/each}
 </div>
 
 <!-- ****************************************************** STYLE -->
 <style lang="scss">
-  .snow-container {
+  .snowflakes {
+    background: radial-gradient(
+      ellipse at bottom,
+      #f3a939 0%,
+      #ff9946 50%,
+      #29245e 100%
+    );
+    pointer-events: none;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -10;
-    height: 100vh;
     width: 100%;
-    background: radial-gradient(ellipse at bottom, #f3a939 0%, #ff9946 50%, #29245e 100%);
-    // background: radial-gradient(ellipse at bottom, #d19a34 0%, #0e1746 100%);
-    overflow: hidden;
-    filter: drop-shadow(0 0 10px white);
+    height: 100%;
+  }
+  .snowflake {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    animation-name: snowflakes-shake;
+    animation-duration: 8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
   }
 
-  @function random_range($min, $max) {
-    $rand: random();
-    $random_range: $min + floor($rand * (($max - $min) + 1));
-    @return $random_range;
+  .snowflake .inner {
+    animation-name: snowflakes-fall;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
   }
 
-  .snow {
-    $total: 200;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
+  @keyframes snowflakes-fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(120vh);
+    }
+  }
 
-    @for $i from 1 through $total {
-      $random-x: random(1000000) * 0.0001vw;
-      $random-offset: random_range(-100000, 100000) * 0.0001vw;
-      $random-x-end: $random-x + $random-offset;
-      $random-x-end-yoyo: $random-x + ($random-offset / 2);
-      $random-yoyo-time: random_range(30000, 80000) / 100000;
-      $random-yoyo-y: $random-yoyo-time * 100vh;
-      $random-scale: random(10000) * 0.0001;
-      $fall-duration: random_range(10, 30) * 1s;
-      $fall-delay: random(30) * -1s;
-
-      &:nth-child(#{$i}) {
-        opacity: random(10000) * 0.0001;
-        transform: translate($random-x, -10px) scale($random-scale);
-        animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
-      }
-
-      @keyframes fall-#{$i} {
-        #{percentage($random-yoyo-time)} {
-          transform: translate($random-x-end, $random-yoyo-y)
-            scale($random-scale);
-        }
-
-        to {
-          transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
-        }
-      }
+  @keyframes snowflakes-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(80px);
     }
   }
 </style>

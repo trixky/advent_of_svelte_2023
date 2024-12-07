@@ -14,15 +14,15 @@
   <Snow />
   <Header />
   <main
-    class="flex flex-1 flex-col gap-4 justify-center items-center align-middle h-full mx-auto text-center p-8 max-w-[700px]"
+  class="flex flex-1 flex-col gap-4 justify-center items-center align-middle h-full mx-auto text-center p-8 max-w-[700px]"
   >
-    <slot />
-  </main>
-  <Footer />
+  <slot />
+</main>
+<Footer />
 </div>
 
 <!-- ****************************************************** STYLE -->
-<style lang="css">
+<style lang="postcss">
   .layout {
     position: relative;
     min-height: 100vh;

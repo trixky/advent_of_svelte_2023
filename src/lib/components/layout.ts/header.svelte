@@ -145,7 +145,7 @@
 <div style="height: {headerHeight}px;" />
 
 <!-- ****************************************************** STYLE -->
-<style lang="css">
+<style lang="postcss">
   li {
     @apply cursor-pointer;
     box-shadow: 0px 0px 5px black;
