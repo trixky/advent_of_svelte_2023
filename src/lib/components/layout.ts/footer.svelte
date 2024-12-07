@@ -9,7 +9,7 @@
     {#each new Array(2).fill(null) as _, index}
       {@const blurLayer = index === 0}
       <div
-        class="w-full justify-center flex flex-col bg-black gap-0 p-6 pb-7 border-t border-solid border-white bg-opacity-30"
+        class="w-full justify-center flex flex-col bg-black gap-0 p-4 border-t border-solid border-white bg-opacity-30"
         class:blur-md={blurLayer}
         class:absolute={blurLayer}
         class:bottom-0={blurLayer}

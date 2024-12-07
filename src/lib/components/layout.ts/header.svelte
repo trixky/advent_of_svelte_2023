@@ -93,7 +93,7 @@
       </div>
     {/each}
   </div>
-  <nav class="-mt-8 -mb-8 z-20 px-6 overflow-hidden w-full">
+  <nav class="-mt-7 -mb-7 sm:-mt-8 sm:-mb-8 z-20 px-6 overflow-hidden w-full">
     <ol class="flex w-full flex-wrap justify-center gap-2">
       {#each days as day, index}
         <li
@@ -108,7 +108,7 @@
         >
           <a href={`/${day.slug}`}>
             <div
-              class="relative w-8 h-8 flex justify-center bg-stone-800 border border-solid border-white"
+              class="relative w-6 h-6 sm:w-8 sm:h-8 flex justify-center bg-stone-800 border border-solid border-white"
             >
               <p class="my-auto">{index + 1}</p>
             </div>
@@ -126,7 +126,7 @@
           }}
         >
           <div
-            class="relative w-8 h-8 flex justify-center bg-neutral-800 border border-solid border-white"
+            class="relative w-6 h-6 sm:w-8 sm:h-8 flex justify-center bg-neutral-800 border border-solid border-white"
           >
             <p class="my-auto opacity-40">?</p>
           </div>

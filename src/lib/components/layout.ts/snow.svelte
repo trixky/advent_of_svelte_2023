@@ -10,19 +10,25 @@
 
   const snowflakesByWidthPixel = 0.1;
   let containerWidth: number = 0;
-  $: snowflakesToDisplayNumber = Math.floor(containerWidth * snowflakesByWidthPixel);
+  $: snowflakesToDisplayNumber = Math.floor(
+    containerWidth * snowflakesByWidthPixel
+  );
 </script>
 
-<div class="snowflakes -z-10" aria-hidden="true" bind:clientWidth={containerWidth}>
+<div
+  class="snowflakes -z-10"
+  aria-hidden="true"
+  bind:clientWidth={containerWidth}
+>
   {#each snowflakes as { left, animationDelayOuter, animationDelayInner, opacity, scale }, index}
     <div
       class="snowflake"
-      style="left: {left}%; animation-delay: {animationDelayOuter}; visibility: {index < snowflakesToDisplayNumber ? 'visible' : 'hidden'};"
+      style="left: {left}%; animation-delay: {animationDelayOuter}; visibility: {index <
+      snowflakesToDisplayNumber
+        ? 'visible'
+        : 'hidden'};"
     >
-      <div
-        class="inner"
-        style="animation-delay: {animationDelayInner};"
-      >
+      <div class="inner" style="animation-delay: {animationDelayInner};">
         <p style="opacity: {opacity}; transform: scale({scale});">❄</p>
       </div>
     </div>
@@ -32,6 +38,12 @@
 <!-- ****************************************************** STYLE -->
 <style lang="scss">
   .snowflakes {
+    background: radial-gradient(
+      ellipse at bottom,
+      #f3a939 0%,
+      #ff9946 50%,
+      #29245e 100%
+    );
     pointer-events: none;
     position: fixed;
     top: 0;
