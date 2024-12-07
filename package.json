@@ -25,6 +25,8 @@
 	"dependencies": {
 		"@iconify/json": "^2.2.280",
 		"@iconify/svelte": "^4.1.0",
-		"@iconify/tools": "^4.0.7"
+		"@iconify/tools": "^4.0.7",
+		"@sveltejs/adapter-static": "^3.0.6",
+		"unplugin-icons": "^0.21.0"
 	}
 }
