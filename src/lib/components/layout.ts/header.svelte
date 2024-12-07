@@ -34,7 +34,7 @@
 
 <!-- ****************************************************** CONTENT -->
 <header
-  class="fixed flex flex-col justify-center items-center mx-auto text-center w-full gap-4"
+  class="absolute sm:fixed flex flex-col justify-center items-center mx-auto text-center w-full gap-4"
   bind:clientHeight={headerHeight}
 >
   <p class="absolute invisible">{titleColorShift}</p>

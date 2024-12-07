@@ -32,12 +32,6 @@
 <!-- ****************************************************** STYLE -->
 <style lang="scss">
   .snowflakes {
-    background: radial-gradient(
-      ellipse at bottom,
-      #f3a939 0%,
-      #ff9946 50%,
-      #29245e 100%
-    );
     pointer-events: none;
     position: fixed;
     top: 0;

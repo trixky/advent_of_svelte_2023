@@ -1,5 +1,11 @@
 html {
   background-color: black;
+  background: radial-gradient(
+    ellipse at bottom,
+    #f3a939 0%,
+    #ff9946 50%,
+    #29245e 100%
+  );
 }
 
 body {
